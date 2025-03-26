@@ -240,7 +240,7 @@
     font-size: 14px;
     display: flex;
     align-items: center;
-    padding-top: 0.5rem;
+    // padding-top: 0.5rem;
     color: #FAEBE8;
 }
 
@@ -314,10 +314,12 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin-left: 6rem;
     // font-style: normal;
     font-size: 90px;
     @media (max-width: 660px) {
         line-height: 65px;
+        margin-left: none;
     }
     // @media (max-width: 564px) {
     //     line-height: 20px;
@@ -328,8 +330,8 @@
   
 }
 .style-hr{
-    width: 30%;
-    margin-top: 2rem;
+    width: 34rem;
+    margin-top: 1rem;
     color: #1C3D69;
     @media (max-width: 1000px) {
         width: 38%;
