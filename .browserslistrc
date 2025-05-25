@@ -1,0 +1,18 @@
+# .browserslistrc
+
+# Estas são as queries padrão do Angular e uma boa base:
+> 0.5%
+last 2 versions
+Firefox ESR
+not dead
+not IE 9-11
+
+# Reforçando o suporte para iOS mais antigos que ainda são comuns:
+iOS >= 13
+
+# Reforçando o suporte para Androids:
+# "android >= 5" cobre o Android Lollipop e superior, que ainda tem uma base de usuários.
+# "ChromeAndroid >= 70" cobre uma vasta gama de versões do Chrome para Android
+# que são razoavelmente modernas e têm bom suporte a recursos.
+android >= 6
+ChromeAndroid >= 80

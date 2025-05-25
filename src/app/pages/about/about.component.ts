@@ -26,7 +26,7 @@ export class AboutComponent {
   } 
 
   whatsapp(): void{    
-    const whatsappUrl = 'https://wa.me/71992117598';
+    const whatsappUrl = 'https://wa.me/71992886118';
     window.open(whatsappUrl, '_blank');
   }
 

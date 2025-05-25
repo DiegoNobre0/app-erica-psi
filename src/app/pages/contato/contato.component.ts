@@ -58,7 +58,7 @@ export class ContatoComponent {
   }
 
   whatsapp(): void{    
-    const phoneNumber = '71992117598';
+    const phoneNumber = '71992886118';
     const message = encodeURIComponent('Olá! Gostaria de agendar uma consulta.');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
