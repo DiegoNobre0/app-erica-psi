@@ -11,7 +11,8 @@ export class EmailService {
 
  
   postEmail(data: any): Observable<any> {       
-    const url = "https://app-wspsi-backend-v2.vercel.app/send-form";
+    // const url = "https://app-wspsi-backend-v2.vercel.app/send-form";
+    const url = "teste";
     // const httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
     return this.httpClient
     .post(url, data)
