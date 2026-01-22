@@ -1,110 +1,107 @@
-<div class="div-body">
-    <!-- <div class="display-mobile">
-        <div style="width: 100%;">
-            <span>
-                <img class="image-container" src="../../../assets/Butterfly.jpg">
-            </span>
-        </div>
-    </div> -->
-    <div class="text-name" style="padding-top: 7rem;">
-        <div class="div-calculo-dose-2">
-            <span class="spam-flex-justify name-home">CONTATO</span>
-            <hr class="style-hr">
-            <div style="text-align: center; padding-top: 2rem;">
-                <p class="name-home" style="font-size: 20px;color: #1C3D69;">Mande aqui suas dúvidas que em breve estarei entrando em
-                    contato</p>
-            </div>
-        </div>
+<div class="contact-page">
+    
+    <div class="page-header">
+        <h1 class="page-title">CONTATO</h1>
+        <div class="header-line"></div>
+        <p class="header-subtitle">
+            Mande suas dúvidas ou agende sua sessão. <br>
+            Em breve entrarei em contato.
+        </p>
     </div>
 
-    <div style="display: flex; padding: 4rem 2rem 0rem 2rem; " class="div-sobre div-curva">
-        <div>
-            <p class="name-home no-margin" style="font-size: 25px; text-align: center; padding-bottom: 1rem;color: #1C3D69;">SIGA-ME NAS REDES SOCIAIS</p>
-        </div>
-        <div style="display: flex;justify-content: center;">
-            <!-- <a href="https://www.facebook.com/waleska.vercosa" target="_blank"
-                class="share-button facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a> -->
-            <a href="https://www.instagram.com/ericamartins_terapeuta" target="_blank"
-                class="share-button whatsapp">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="div-sobre div-curva">
-        <div class="text-container div-info" style="color: #1C3D69;">
-            <div style="padding-bottom: 1rem; display: flex; flex-direction: column;">
-                <div style="padding-bottom: 1rem;">
-                    <p class="name-home no-margin" style="font-size: 25px;">SESSÕES VIA AGENDAMENTO</p>
-                </div>
-                <div class="div-flex-center marg-text-wpp" style="background-color: #1C3D69; margin-bottom: 2rem; border-radius: 4px;">
-                    <p class="div-calculo-dose-cards text-wpp"
-                        style="font-size: 12px;color: #FAEBE8; padding-left: 15px; padding-bottom: 8px;" (click)="whatsapp()">AGENDAR VIA WHATSAPP</p>
-                </div>
-                <div style="padding-bottom: 1rem;">
-                    <p class="name-home no-margin" style="font-size: 25px;"><b>E-MAIL:</b></p>
-                    <p class="name-home no-margin" style="font-size: 25px;">ericamsantos@yahoo.com.br</p>
-                </div>
-                <div style="padding-bottom: 1rem;">
-                    <p class="name-home no-margin" style="font-size: 25px;"><b>INSTAGRAM:</b></p>
-                    <p class="name-home no-margin" style="font-size: 25px;">@ericamartins_terapeuta</p>
-                </div>
+    <div class="main-container">
+        
+        <div class="info-column">
+            
+            <div class="info-block social-block">
+                <h3 class="info-title">REDES SOCIAIS</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ericamartins_terapeuta" target="_blank" class="social-btn instagram">
+                        <i class="pi pi-instagram"></i>
+                    </a>
+                    </div>
+                <p class="instagram-handle">@ericamartins_terapeuta</p>
             </div>
+
+            <div class="info-block contact-details">
+                <h3 class="info-title">CANAIS DE ATENDIMENTO</h3>
+                
+                <div class="contact-item">
+                    <div class="icon-circle"><i class="pi pi-envelope"></i></div>
+                    <div class="contact-text">
+                        <span class="label">E-mail</span>
+                        <span class="value">ericamsantos@yahoo.com.br</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon-circle"><i class="pi pi-whatsapp"></i></div>
+                    <div class="contact-text">
+                        <span class="label">WhatsApp</span>
+                        <span class="value">(71) 99288-6118</span>
+                    </div>
+                </div>
+
+                <button pButton pRipple label="AGENDAR VIA WHATSAPP" 
+                        icon="pi pi-whatsapp" 
+                        class="btn-primary w-full mt-3"
+                        (click)="whatsapp()"></button>
+            </div>
+
         </div>
-        <div class="div-calculo-dose-cards">
-            <div class="form-container">
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                    <input style="padding-bottom: 0.5rem;" type="text" id="name" formControlName="name"
-                        placeholder="Seu nome">
-                    <div style="padding-bottom: 0.5rem;display: flex;"
-                        *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-                        <small class="error">O campo é obrigatório.</small>
+
+        <div class="form-column">
+            <div class="form-card shadow-3">
+                <h3 class="form-title">Envie uma Mensagem</h3>
+                
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+                    
+                    <div class="input-group">
+                        <label>Nome</label>
+                        <input type="text" pInputText formControlName="name" placeholder="Seu nome completo" class="custom-input">
+                        <small class="error-msg" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">Obrigatório</small>
                     </div>
 
-                    <input style="padding-bottom: 0.5rem;" type="email" id="email" formControlName="email"
-                        placeholder="Seu e-mail">
-                    <div style="padding-bottom: 0.5rem;display: flex;"
-                        *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-                        <small class="error" *ngIf="contactForm.get('email')?.errors?.['required']">O campo é
-                            obrigatório.</small>
-                        <small class="error" *ngIf="contactForm.get('email')?.errors?.['email']">Email inválido.</small>
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" pInputText formControlName="email" placeholder="seu@email.com" class="custom-input">
+                        <small class="error-msg" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">E-mail inválido</small>
                     </div>
 
-                    <input style="padding-bottom: 0.5rem;" type="tel" id="number" formControlName="number"
-                        placeholder="Seu WhatsApp">
-                    <div style="padding-bottom: 0.5rem;display: flex;"
-                        *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">
-                        <small class="error" *ngIf="contactForm.get('number')?.errors?.['required']">O campo é
-                            obrigatório.</small>
-                        <small class="error" *ngIf="contactForm.get('number')?.errors?.['pattern']">Formato de número
-                            inválido.</small>
+                    <div class="input-group">
+                        <label>WhatsApp</label>
+                        <input type="tel" pInputText formControlName="number" placeholder="(DD) 99999-9999" class="custom-input">
+                        <small class="error-msg" *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">Número inválido</small>
                     </div>
 
-                    <textarea style="padding-bottom: 0.5rem;" id="message" formControlName="message" rows="8"
-                        placeholder="Mensagem"></textarea>
-                    <div style="display: flex;margin-top: -11px;margin-bottom: 1rem;" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-                        <small class="error">Mensagem é obrigatória.</small>
+                    <div class="input-group">
+                        <label>Mensagem</label>
+                        <textarea pInputTextarea formControlName="message" rows="5" placeholder="Como posso te ajudar?" class="custom-input"></textarea>
+                        <small class="error-msg" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Obrigatório</small>
                     </div>
 
-                    <button type="submit">Enviar Mensagem</button>
+                    <button pButton pRipple label="ENVIAR MENSAGEM" 
+                            class="btn-primary w-full"
+                            type="submit"
+                            [disabled]="contactForm.invalid"></button>
                 </form>
             </div>
         </div>
-        
+
     </div>
-    <div style="padding-bottom: 3rem;; background-color: #CEA44B; color: #1C3D69;">
-        <div class="div-flex-center marg-text-wpp" style="padding-bottom: 1rem">
-            <p class="name-home no-margin" style="font-size: 32px;"><b>ENDEREÇO</b></p>
-        </div>
-        <div class="div-flex-center marg-text-wpp" style="text-align: center;">
-            <p class="name-home no-margin" style="font-size: 25px;">RUA DA BANDEIRA, 44 - CENTRO - CAMAÇARI - BA</p>
+
+    <div class="address-section">
+        <div class="address-content">
+            <i class="pi pi-map-marker address-icon"></i>
+            <div class="address-text">
+                <h2>ENDEREÇO</h2>
+                <p>RUA DA BANDEIRA, 44 - CENTRO - CAMAÇARI - BA</p>
+            </div>
+            <button pButton pRipple label="ABRIR NO MAPS" 
+                    icon="pi pi-external-link" 
+                    class="btn-outline-white"
+                    (click)="openMaps()"></button>
         </div>
     </div>
-    <!-- <div>
-        <google-map height="450px" width="1000px" [center]="center" [zoom]="zoom" (mapClick)="moveMap($event)"
-            (mapMousemove)="move($event)">
-        </google-map>
-    </div> -->
+
 </div>

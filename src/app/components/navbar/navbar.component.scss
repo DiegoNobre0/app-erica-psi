@@ -1,112 +1,94 @@
-.div-logo{
-    width: 57%;
+// Transição suave para todas as propriedades animáveis
+.nav-transition {
+    transition: transform 0.4s ease-in-out, background-color 0.3s ease, padding 0.3s ease;
 }
 
-.img-logo{
-    height: 10.5rem;
-    width: 10.5rem;
-    padding-left: 2rem;
-    margin-top: -1rem;
+// Classe base para o container (substitui o style inline margin-top negativo se necessário, 
+// mas aqui usei transform para garantir performance)
+.nav-container {
+    // Garante que ele fique no topo
+    top: 0;
+    left: 0;
 }
 
-.display-mobile-menu{
-    @media (max-width: 990px){
-        display: none;
-    }
+// CLASSE QUE ESCONDE O MENU
+// Translada o eixo Y em -100% (move para cima completamente)
+.nav-hidden {
+    transform: translateY(-100%);
 }
 
-.display-mobile-accordion{
-    display: none;
-    @media (max-width: 990px){
-        display: contents;
-    }
+// Remove o fundo do botão ao clicar (padrão PrimeNG ajustado)
+:host ::ng-deep .p-button.p-button-text:focus {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.toolbar-spacer {
-    flex : 1  1 auto;
+.tracking-wide {
+    letter-spacing: 1.5px;
 }
 
-.span-toolbar{
-    // color: #CEA44B;
-    font-size: 18px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    transition: color 0.3s ease;
+// Variáveis
+$color-blue: #1C3D69;
+$color-gold: #CEA44B;
+$font-cinzel: 'Cinzel', serif;
 
-}
+// ... (seu código anterior da navbar desktop) ...
 
-.span-toolbar:hover {
-    color:#CEA44B;
-}
+// CUSTOMIZAÇÃO DA SIDEBAR MOBILE
+::ng-deep .custom-sidebar {
+    background-color: #ffffff !important;
+    width: 300px !important; // Largura confortável
+    border-left: 4px solid $color-gold !important; // Detalhe dourado na borda esquerda
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2) !important;
 
-button.mat-button {
-    background: none;
-    box-shadow: none;
-}
+    // 1. Botão de Fechar (X)
+    .p-sidebar-close {
+        width: 3rem !important;
+        height: 3rem !important;
+        color: $color-blue !important; // X azul marinho
+        background: transparent !important;
+        border-radius: 50%;
+        top: 1rem !important;
+        right: 1rem !important;
+        transition: all 0.3s;
 
-/* Remover sombra e contorno quando o botão está em foco ou hover */
-button.mat-button:hover,
-button.mat-button:focus,
-button.mat-button:active {
-    background: none;
-    box-shadow: none;
-    outline: none;
-}
-
-.mat-toolbar-mobile{
-    transition: all 0.3s ease-out;
-    padding: 1rem 0rem 0rem 0rem;
-    display: none;
-    justify-content: center;
-    position: fixed;
-    z-index: 9;
-    // height: 7rem;
-    margin-top: -1rem;
-    @media (max-width: 990px){
-        display: block;
-        background:#fff;
-    }
-}
-
-.mat-toolbar-desktop{
-    transition: all 0.3s ease-out;
-    padding: 1rem 2rem 0rem 0rem;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    z-index: 9;
-    height: 7rem;
-    margin-top: -1rem;
-    @media (max-width: 990px){
-        display: none;
-        background:#fff;
-    }
-}
-
-
-::ng-deep .custom-dialog-container-login {
-    mat-dialog-container {
-      position: fixed;
-      display: block;
-      z-index: 11;
-      width: 30rem;
-      height: 25rem;
-      left: 36%;
-      top: 4%;
-      background-color: rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(3px);
-
-      @media (max-width: 990px){
-        position: fixed;
-        display: block;
-        z-index: 11;
-        width: 100%;
-        height: 35rem;
-        left: 10%;
-        top: 10%;
-        padding: 1rem 1rem 7rem 1rem;
+        &:hover {
+            background-color: rgba(28, 61, 105, 0.05) !important;
+            color: $color-gold !important; // Fica dourado ao passar o mouse
+            transform: rotate(90deg); // Efeito charmoso de rotação
         }
+        
+        &:focus { box-shadow: none !important; }
+    }
+
+    // 2. Conteúdo
+    .p-sidebar-content {
+        padding: 2rem 1.5rem !important;
     }
 }
 
+// 3. Estilo dos Links (Botões)
+.mobile-nav-btn {
+    font-family: $font-cinzel !important;
+    font-size: 1.4rem !important; // Fonte grande e legível
+    color: $color-blue !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    width: 100%;
+    padding: 1.2rem !important;
+    border-bottom: 1px solid rgba(28, 61, 105, 0.05) !important; // Linha divisória sutil
+    border-radius: 0 !important;
+    transition: all 0.3s ease !important;
 
+    // Efeito ao passar o mouse ou tocar
+    &:hover {
+        color: $color-gold !important;
+        background-color: transparent !important;
+        letter-spacing: 2px !important; // As letras se afastam (efeito elegante)
+        border-bottom-color: $color-gold !important;
+    }
+
+    // Remove fundo cinza padrão do clique
+    &:focus {
+        background: transparent !important;
+    }
+}

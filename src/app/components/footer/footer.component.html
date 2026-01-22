@@ -1,117 +1,86 @@
-<footer layout="row">
-    <div class="div-footer" style="color: #1C3D69">
-        <div class="div-grid"> 
-            <div class="div-logo div-pb" >
-                <img class="img-logo" src="../../../assets/IMG_8855.PNG">
-            </div>  
-            <span class="div-pb" style="width: 90%;">
-                <b>Ser terapeuta é acolher com presença e escuta, oferecendo um espaço seguro para que o outro possa se reconhecer e se transformar. Não damos respostas prontas, mas caminhamos ao lado, ajudando a dar sentido ao que dói e ao que pulsa. É um trabalho que exige ética, sensibilidade e autoconhecimento. Ser terapeuta é acreditar no poder do vínculo, do afeto e na possibilidade constante de recomeçar.
-                </b>
-            </span>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo">call</mat-icon>
-                <span style="position: absolute">(71) 99288-6118</span>
+<footer class="footer-section">
+    <div class="footer-container">
+        
+        <div class="footer-col info-col">
+            <div class="logo-wrapper">
+                <img src="assets/IMG_8855.PNG" alt="Logo Erica Martins" class="footer-logo">
             </div>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo">mail</mat-icon>
-                <span style="position: absolute">ericamsantos@yahoo.com.br</span>
-            </div> 
-            <div class="div-pb">
-                <mat-icon class="icon-calculo">location_on</mat-icon>
-                <span style="position: absolute">	
-                    RUA DA BANDEIRA, 44 - CENTRO - CAMAÇARI - BA
-                </span>
+            
+            <p class="footer-bio">
+                Ser terapeuta é acolher com presença e escuta, oferecendo um espaço seguro para que o outro possa se reconhecer e se transformar. Não damos respostas prontas, mas caminhamos ao lado.
+            </p>
+
+            <div class="contact-list">
+                <div class="contact-item">
+                    <i class="pi pi-whatsapp"></i>
+                    <span>(71) 99288-6118</span>
+                </div>
+                <div class="contact-item">
+                    <i class="pi pi-envelope"></i>
+                    <span>ericamsantos@yahoo.com.br</span>
+                </div>
+                <div class="contact-item">
+                    <i class="pi pi-map-marker"></i>
+                    <span>Rua da Bandeira, 44 - Centro - Camaçari/BA</span>
+                </div>
             </div>
         </div>
-        <div class="div-grid">
-            <span style="padding-bottom: 2rem;font-size: 22px;">Especialidades</span>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo-2">psychology</mat-icon>
-                <span style="position: absolute; margin-top: 5px;">	
-                    TERAPIA ENERGÉTICA
-                </span>
-            </div>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo-2">psychology</mat-icon>
-                <span style="position: absolute; margin-top: 5px;">	
-                    HIPNOTERAPIA
-                </span>
-            </div>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo-2">psychology</mat-icon>
-                <span style="position: absolute; margin-top: 5px;">	
-                    REGRESSÃO
-                </span>
-            </div>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo-2">psychology</mat-icon>
-                <span style="position: absolute; margin-top: 5px;">	
-                    ANSIEDADE
-                </span>
-            </div>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo-2">psychology</mat-icon>
-                <span style="position: absolute; margin-top: 5px;">	
-                    DEPRESSÃO
-                </span>
-            </div>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo-2">psychology</mat-icon>
-                <span style="position: absolute; margin-top: 5px;">	
-                    TRANSIÇÃO DE CARREIRA
-                </span>
-            </div>
-            <div class="div-pb">
-                <mat-icon class="icon-calculo-2">psychology</mat-icon>
-                <span style="position: absolute; margin-top: 5px;">	
-                    ESPIRITUALIDADE
-                </span>
-            </div>
+
+        <div class="footer-col specialties-col">
+            <h3 class="footer-title">Especialidades</h3>
+            <ul class="specialties-list">
+                <li><i class="pi pi-star-fill"></i> Terapia Energética</li>
+                <li><i class="pi pi-star-fill"></i> Hipnoterapia</li>
+                <li><i class="pi pi-star-fill"></i> Regressão</li>
+                <li><i class="pi pi-star-fill"></i> Ansiedade</li>
+                <li><i class="pi pi-star-fill"></i> Depressão</li>
+                <li><i class="pi pi-star-fill"></i> Transição de Carreira</li>
+                <li><i class="pi pi-star-fill"></i> Espiritualidade</li>
+            </ul>
         </div>
-        <div class="div-grid">
-            <span style="padding-bottom: 2rem; font-size: 22px;">Contato</span>
-            <div class="form-container">
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                    <input style="padding-bottom: 0.5rem;" type="text" id="name" formControlName="name"
-                        placeholder="Seu nome">
-                    <div style="padding-bottom: 0.5rem;display: flex;"
-                        *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-                        <small class="error">O campo é obrigatório.</small>
-                    </div>
 
-                    <input style="padding-bottom: 0.5rem;" type="email" id="email" formControlName="email"
-                        placeholder="Seu e-mail">
-                    <div style="padding-bottom: 0.5rem;display: flex;"
-                        *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-                        <small class="error" *ngIf="contactForm.get('email')?.errors?.['required']">O campo é
-                            obrigatório.</small>
-                        <small class="error" *ngIf="contactForm.get('email')?.errors?.['email']">Email inválido.</small>
-                    </div>
+        <div class="footer-col form-col">
+            <h3 class="footer-title">Entre em Contato</h3>
+            
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="footer-form">
+                
+                <div class="form-group">
+                    <input type="text" formControlName="name" placeholder="Seu nome" class="custom-input">
+                    <small class="error-msg" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                        Obrigatório
+                    </small>
+                </div>
 
-                    <input style="padding-bottom: 0.5rem;" type="tel" id="number" formControlName="number"
-                        placeholder="Seu WhatsApp">
-                    <div style="padding-bottom: 0.5rem;display: flex;"
-                        *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">
-                        <small class="error" *ngIf="contactForm.get('number')?.errors?.['required']">O campo é
-                            obrigatório.</small>
-                        <small class="error" *ngIf="contactForm.get('number')?.errors?.['pattern']">Formato de número
-                            inválido.</small>
-                    </div>
+                <div class="form-group">
+                    <input type="email" formControlName="email" placeholder="Seu e-mail" class="custom-input">
+                    <small class="error-msg" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                        E-mail inválido
+                    </small>
+                </div>
 
-                    <textarea style="padding-bottom: 0.5rem;" id="message" formControlName="message" rows="8"
-                        placeholder="Mensagem"></textarea>
-                    <div style="display: flex;margin-top: -11px;margin-bottom: 1rem;" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-                        <small class="error">Mensagem é obrigatória.</small>
-                    </div>
+                <div class="form-group">
+                    <input type="tel" formControlName="number" placeholder="Seu WhatsApp" class="custom-input">
+                    <small class="error-msg" *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">
+                        Número inválido
+                    </small>
+                </div>
 
-                    <button type="submit">Enviar Mensagem</button>
-                </form>
-            </div>
+                <div class="form-group">
+                    <textarea formControlName="message" rows="4" placeholder="Sua mensagem" class="custom-input"></textarea>
+                    <small class="error-msg" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+                        Escreva uma mensagem
+                    </small>
+                </div>
+
+                <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">
+                    ENVIAR MENSAGEM
+                </button>
+            </form>
         </div>
+
     </div>
-    <div style="padding-bottom: 1rem; padding-top: 2rem;color: #1C3D69" >
-        <span class="spam-flex-justify" >
-            © 2024. Todos os Direitos Reservados.
-        </span>
+
+    <div class="copyright-bar">
+        <span>© 2024 Erica Martins. Todos os Direitos Reservados.</span>
     </div>
-  </footer>
+</footer>

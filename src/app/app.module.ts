@@ -45,6 +45,11 @@ import { WhatsappComponent } from './components/whatsapp/whatsapp.component';
 import { ApproveCommentComponent } from './components/approve-comment/approve-comment.component';
 import { RejectCommentComponent } from './components/reject-comment/reject-comment.component';
 
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { CardModule } from 'primeng/card'; // Opcional, mas útil se quiser usar o componente p-card
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +90,10 @@ import { RejectCommentComponent } from './components/reject-comment/reject-comme
     MatSnackBarModule,
     MatTableModule,
     MaskedTextBoxModule,
+    SidebarModule,
+    ButtonModule,
+    RippleModule,
+    CardModule
     
   ],
   providers: [

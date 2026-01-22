@@ -1,96 +1,173 @@
-.div-logo{
-    width: 57%;
+// Variáveis
+$color-blue: #1C3D69;
+$color-gold: #D4AF37;
+$bg-footer: #f8f9fa; // Cinza bem clarinho para o fundo
+$border-color: #ddd;
+
+.footer-section {
+    background-color: $bg-footer;
+    border-top: 1px solid $border-color;
+    padding-top: 4rem;
+    color: $color-blue;
+    font-size: 0.95rem;
 }
 
-.img-logo{
-    height: 10rem;
-    width: 10rem;
-    
-}
-
-.div-footer{    
-    padding-top: 2rem;
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: grid;
-    grid-template-columns: 34% 33% 33%;
-    padding-left: 1rem;
-    @media (max-width: 990px){
-       display: flex;
-       flex-direction: column;
-     }
+    gap: 3rem;
+
+    // Grid System: 1 coluna no mobile, 3 no desktop
+    grid-template-columns: 1fr;
+
+    @media (min-width: 992px) {
+        grid-template-columns: 1.2fr 1fr 1.2fr; // Colunas laterais um pouco mais largas
+    }
 }
 
-.div-grid{
+// --- Coluna 1: Info ---
+.info-col {
+    .logo-wrapper {
+        margin-bottom: 1.5rem;
+
+        img {
+            width: 13rem;
+            height: 12rem;
+            margin-left: 5rem;
+        }
+    }
+
+    .footer-bio {
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        text-align: justify;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.8rem;
+
+        i {
+            color: $color-gold;
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+            width: 20px; // Alinha os textos mesmo se o ícone for estreito
+            text-align: center;
+        }
+    }
+}
+
+// --- Coluna 2: Especialidades ---
+.specialties-col {
+    .footer-title {
+        font-family: 'Cinzel', serif;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid $color-gold;
+        display: inline-block;
+        padding-bottom: 0.5rem;
+    }
+
+    .specialties-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px dashed rgba(28, 61, 105, 0.1);
+
+            i {
+                color: $color-gold;
+                font-size: 0.8rem;
+                margin-right: 0.8rem;
+            }
+        }
+    }
+}
+
+// --- Coluna 3: Formulário ---
+.form-col {
+    .footer-title {
+        font-family: 'Cinzel', serif;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.footer-form {
     display: flex;
     flex-direction: column;
-    padding-left: 3rem;
-    @media (max-width: 990px){
-        padding-left: 0rem;
-        padding-bottom: 2rem;
-      }
+    gap: 1rem;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Estilo personalizado dos Inputs para ficar clean
+    .custom-input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: white;
+        font-family: inherit;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: $color-blue;
+            box-shadow: 0 0 0 2px rgba(28, 61, 105, 0.1);
+        }
+    }
+
+    textarea.custom-input {
+        resize: vertical; // Permite redimensionar só na vertical
+    }
+
+    .error-msg {
+        color: #d9534f;
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+    }
+
+    .submit-btn {
+        background-color: $color-blue;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0.5rem;
+
+        &:hover {
+            background-color: lighten($color-blue, 10%);
+        }
+
+        &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    }
 }
 
-.spam-flex-justify{
-    display: flex;
-    justify-content: center;
-}
-
-.div-pb{
-    padding-bottom: 1rem;
-}
-
-.icon-calculo{
-    font-size: 24px;
-    width: 40px;
-    height: 30px;
-}
-
-.icon-calculo-2{
-    font-size: 30px;
-    width: 40px;
-    height: 30px;
-}
-
-
-.form-container {  
-    // padding: 2rem;    
-    width: 17rem;
-}
-
-h2 {
+// --- Copyright Bar ---
+.copyright-bar {
+    margin-top: 4rem;
+    background-color: darken($bg-footer, 5%);
     text-align: center;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #ffffff;
-    @media (max-width: 337px){
-        width: 85%;
-      }
-
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1C3D69;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 9px;
-    @media (max-width: 337px){
-        width: 85%;
-      }
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    color: lighten($color-blue, 20%);
 }

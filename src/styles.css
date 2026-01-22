@@ -1,4 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* 1. Tema do PrimeNG (Cores e visual dos componentes) */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* 2. Estilos base do PrimeNG */
+@import "primeng/resources/primeng.min.css";
+
+/* 3. Ícones */
+@import "primeicons/primeicons.css";
+
+/* 4. PrimeFlex (Sistema de Grid e Utilitários) */
+@import "primeflex/primeflex.css";
+
+/* --- SEUS ESTILOS GLOBAIS --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif; /* O PrimeNG usa a fonte padrão do sistema, fica bem clean */
+    background-color: var(--surface-ground); /* Cor de fundo suave padrão */
+}
+

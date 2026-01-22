@@ -1,13 +1,6 @@
-import { Component, HostListener, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
-import { MatExpansionPanel } from '@angular/material/expansion';
-// import { PopupCadastroMedicamentoComponent } from '../popup-cadastro-medicamento/popup-cadastro-medicamento.component';
-// import { MatDialog } from '@angular/material/dialog';
-// import { MedicamentosService } from 'src/app/services/medicamentos.service';
-// import { Medicamento } from 'src/app/model/medicamento';
-// import { PopupLoginComponent } from '../popup-login/popup-login.component';
-// import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,140 +8,64 @@ import { MatExpansionPanel } from '@angular/material/expansion';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  constructor(
-    private elementRef: ElementRef,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,    
-    private route: ActivatedRoute  
-    ) {}
 
-  rotaAtual = ""
-  panelOpenState : boolean = false;
-  loginLogout : boolean = false;
-  showWhiteLogo : boolean = true;
-  showDefaultLogo : boolean= false;
+  // Controle de estado visual
+  isScrolled: boolean = false; // Controla a cor de fundo (transparente vs branco)
+  isHidden: boolean = false;   // Controla se o menu está escondido ou visível
+  sidebarVisible: boolean = false;
+  currentRoute: string = '';
+
+  // Controle de posição para o efeito "Smart Scroll"
+  private lastScrollPosition: number = 0;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.rotaAtual = this.activatedRoute?.root?.firstChild?.snapshot?.routeConfig?.path ?? ""
-        // console.log(this.rotaAtual)
-        this.onWindowScroll();
+      .subscribe((event: any) => {
+        this.currentRoute = event.url;
+        this.isHidden = false; // Sempre mostra o menu ao mudar de página
+        this.checkScroll(); 
       });
-      // this.confirmToken();
-  }
-
-  @ViewChild(MatExpansionPanel) panel!: MatExpansionPanel;
-
-  closePanel() {
-    this.panel.close();
   }
 
   @HostListener('window:scroll', [])
-  onWindowScroll(){    
-    const nav = this.elementRef.nativeElement.querySelector('#nav');
-  
-    if (this.rotaAtual === "" && window.scrollY > 90) {
-      this.showWhiteLogo = false;
-      this.showDefaultLogo = true;
-      nav.style.background = '#fff';
-      nav.style.color = '#1C3D69'
-      return
+  onWindowScroll() {
+    this.checkScroll();
+  }
+
+  private checkScroll() {
+    const currentScroll = window.scrollY || 0;
+
+    // 1. LÓGICA DE COR (Transparente vs Branco)
+    if (this.currentRoute !== '/' || currentScroll > 50) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
     }
 
-    // if (window.scrollY === 0) {
-    //   nav.style.background = 'transparent';
-    //   nav.style.color = 'white'
-    //   return;
-    // }
-
-    if (window.scrollY === 0 && this.rotaAtual === "") {
-      this.showWhiteLogo = true;
-      this.showDefaultLogo = false;
-      nav.style.background = 'transparent';
-      nav.style.color = '#CEA44B'
-      return;
+    // 2. LÓGICA DE ESCONDER/MOSTRAR (Smart Header)
+    // Só ativa se já tiver descido um pouco (ex: 100px) para evitar "pulos" no topo
+    if (currentScroll > 100) {
+      if (currentScroll > this.lastScrollPosition) {
+        // Se a posição atual for MAIOR que a anterior, está descendo -> ESCONDE
+        this.isHidden = true;
+      } else {
+        // Se a posição atual for MENOR que a anterior, está subindo -> MOSTRA
+        this.isHidden = false;
+      }
+    } else {
+      // Se estiver no topo da página, sempre mostra
+      this.isHidden = false;
     }
 
-    if (window.scrollY === 0 && (this.rotaAtual === "blog" || this.rotaAtual === "servicos" || this.rotaAtual === "contato" || this.rotaAtual === "sobre" )) {
-      this.showWhiteLogo = false;
-      this.showDefaultLogo = true;
-      nav.style.background = 'transparent';
-      nav.style.color = '#CEA44B'
-      return;
-    }
-
-    if(this.rotaAtual){
-      this.showWhiteLogo = false;
-      this.showDefaultLogo = true;
-      nav.style.background = '#fff';
-      nav.style.color = '#CEA44B'
-      return
-    }
-
-  
-    nav.style.background = 'transparent';
-    
+    // Atualiza a posição anterior para a próxima verificação
+    this.lastScrollPosition = currentScroll;
   }
 
-  home(): void{
-    this.router.navigate(['/'], { relativeTo: this.route });
-     this.closePanel();
+  navigate(path: string) {
+    this.router.navigate([path]);
+    this.sidebarVisible = false;
   }
-
-  about(): void{    
-    this.router.navigate(['/sobre'], { relativeTo: this.route });
-     this.closePanel();
-  }
- 
-  service(): void{
-    this.router.navigate(['/servicos'], { relativeTo: this.route });
-     this.closePanel();
-  }
-
-  blog(): void{
-    this.router.navigate(['/blog'], { relativeTo: this.route });
-     this.closePanel();
-  }
-
-  contact(): void{
-    this.router.navigate(['/contato'], { relativeTo: this.route });
-     this.closePanel();
-  }
-
-
-  // openDialogLogin(): void {
-  //   const dialogRef = this.dialog.open(PopupLoginComponent, {
-  //     panelClass: 'custom-dialog-container-login',
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     this.login(result)
-  //   });
-  // } 
-
-  // login(login : any){ 
-  //   this.loginService.signIn(login).subscribe((res: any) => {
-  //     localStorage.setItem('access_token', res.token);
-  //     localStorage.setItem('loginLogout', 'true');
-  //     this.confirmToken()
-  //   });
-  // }  
-
-  // confirmToken(){
-  //   var access_token = this.loginService.getToken()
-    
-  //   if(access_token  != null){  
-  //     this.loginLogout = true;
-  //     //this.router.navigate(['/adm'], { relativeTo: this.route });
-  //   }
-  // }
-
-  // logout(){
-  //   localStorage.removeItem('access_token');
-  //   localStorage.setItem('loginLogout', 'false');
-  //   this.loginLogout = false;
-  //   this.loginService.doLogout();
-  // }
 }

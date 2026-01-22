@@ -1,542 +1,314 @@
-.demo-section {
-    border: 1px solid #bbb;
-}
+// Variáveis
+$color-blue: #1C3D69;
+$color-gold: #CEA44B;
+$font-cinzel: 'Cinzel', serif;
 
-.div-body {
-    background: white;
-    margin: 0px;
-    overflow-x: hidden;
-    width: 100%;
-    @media (max-width: 330px) {
-        width: 20rem;
-    }
-}
-
-.cards-button {
-    background: #ffff;
-    padding: 5rem 6rem 5rem 6rem;
-    margin: 1rem;
-}
-
-.spam-flex-justify {
-    display: flex;
-    justify-content: center;
-    color: #1C3D69;
-
-    @media (max-width: 990px) {
-        text-align: center;
-    }
-}
-
-.cards-button:hover {
-    transition: all 0.4s;
-    -webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.1);
-    background: #fff;
-}
-
-.div-baby-doctor {
-    margin-top: 10rem;
-    padding: 1rem 5rem 0rem 7rem;
-}
-
-.display-mobile {
-    // @media (max-width: 990px) {
-    //     display: none;
-    // }
-}
-
-.div-calculo-dose-2 {
-    @media (max-width: 990px) {
-        padding: 2rem 1rem 0rem 1rem;
-    }
-}
-
-.div-calculo-dose {
-    color: #1C3D69;
-    padding: 3rem 2rem 0rem 2rem;
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-
-    @media(max-width: 960px) {
-        grid-template-columns: 50% 50%;
-        padding-left: 1rem;
-        gap: 1rem
-    }    
-
-    @media (max-width: 500px) {
-        display: grid;
-        grid-template-columns: 30% 30%;
-        gap: 2rem;
-        padding-left: 8rem;
-    }
-}
-
-.div-calculo-dose-cards {
+// --- 1. HEADER ---
+.page-header {
     text-align: center;
-    @media (max-width: 990px) {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    }
-}
-
-.div-flex-center {
-    display: flex;
-    justify-content: center;
-}
-
-.cards-button-1 {
-    background: #ffff;
-    padding: 5rem 7rem 5rem 7rem;
-    margin: 1rem;
-    box-shadow: 0 6px darkgreen;
-}
-
-.image-container {
-    height: 65%;
-    width: 100%;
-    @media (max-width: 990px){
-        padding-top: 3rem;
-    }
-}
-
-.div-puericultura {
-    padding: 4rem;
-    display: flex;
-    justify-content: center;
-
-    @media (max-width: 990px) {
-        display: block;
-    }
-}
-
-.image-container-1 {
-    padding-top: 2rem;
-    // background-image: url("../../../assets/bebe.jpg");
-    // background-size: cover;
-    // background-position: center center;]
-    display: flex;
-}
-
-.card {    
-    border-radius: 5px;
-    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-    padding: 2rem;
-    margin: 1rem;
-    width: 65%;
-    transition: all 0.3s ease-out;
-}
-
-.card1 {    
-    cursor:pointer;
-    border-radius: 5px;
-    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-    padding: 0rem;
-    margin: 1rem;
-    width: 50%;
-    transition: all 0.3s ease-out;
-    @media (max-width: 960px) {
-        width: 80%;
-    }
-}
-
-.card-button {    
-    cursor:pointer;
-    border-radius: 5px;
-    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-    padding: 0rem;
-    margin: 1rem;
-    width: 50%;
-    transition: all 0.3s ease-out;
-    @media (max-width: 960px) {
-        width: 80%;
-    }
-
-    // @media (max-width: 960px) {
-    //     width: 60%;
-    // }
-}
-
-.card-border-1 {
-    border-bottom: 3px solid #d3a5c9;
-}
-
-
-.icon-calculo {
-    color: #1C3D69;
-    padding-bottom: 0.5rem;
-    // height: 60px;
-    // width: 60px;
-    // font-size: 50px;
-}
-.mat-icon {    
-    -webkit-user-select: none;
-        user-select: none;
-        background-repeat: no-repeat;
-        display: inline-block;
-        fill: currentColor;
-        height: 26px;
-        width: 40px;
-        overflow: hidden;
-        font-size: 27px;
-    }
-
-.icon-wpp {
-    height: 4rem;
-    width: 2rem;
-    padding-left: 1rem;
-    color: #ffffff;
-}
-
-.text-wpp{
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    // padding-top: 0.8rem;
-    color: #ffffff;
-}
-
-.marg-icon-wpp{
-    margin-left: -1rem;
-    @media (max-width: 1100px) {
-        margin-left: 0rem;
-    }
-}
-.marg-text-wpp{    
-    @media (max-width: 1100px) {
-        padding-left: 1rem;
-    }
-     @media (max-width: 500px) {
-        padding-left: 0rem;
-    }
-}
-.image-container2 {
-    display: flex;
-    align-items: center;
-    /* Centralizar verticalmente */
-    justify-content: center;
-    /* Centralizar horizontalmente */
-    
-
-}
-
-.image-container2 img {
-    border: 5px solid rgb(255, 255, 255);
-    width: 85%;
-    /* Largura fixa para a imagem */
-    height: 80%;
-    /* Altura fixa para a imagem */    
-    object-fit: cover;
-    
-    @media (max-width: 450px) {
-        height: 25rem;
-    }
-}
-
-.image-container3 {
-    display: flex;
-    align-items: center;
-    /* Centralizar verticalmente */
-    justify-content: center;
-    /* Centralizar horizontalmente */
-    
-
-}
-
-// .div-especialidade{
-//     padding-bottom: 12rem;
-//     @media (max-width: 450px) {
-//         padding-bottom: 16rem;
-//     }
-// }
-
-.div-especialidade{
-    display: flex;
-    justify-content: space-around;
+    padding: 15rem 1rem 5rem 1rem;
     background-color: white;
+}
+
+.page-title {
+    font-family: $font-cinzel;
+    color: $color-blue;
+    font-size: 2.5rem;
+    margin: 0;
     
-    padding: 3rem 1rem 0rem 1rem;
+    @media (min-width: 768px) { font-size: 3.5rem; }
+}
 
-    @media (max-width: 1050px) {
-        padding: 3rem 1rem 0rem 1rem;
-    }
+.header-line {
+    width: 100px;
+    height: 2px;
+    background-color: $color-blue;
+    margin: 1rem auto;
+    
+    &.blue-line { background-color: $color-blue; }
+}
 
-    @media (max-width: 960px) {
-        justify-content: none;
-        flex-direction: column;
+// --- 2. BIO SECTION (A Curva Dourada) ---
+.bio-section {
+    background-color: $color-gold;
+    // Padding ajustado para dar respiro, mas permitir que a imagem cresça
+    padding: 4rem 1rem 6rem 1rem; 
+    color: $color-blue;
+    position: relative;
+
+    // Curva suave na base da seção inteira
+    border-bottom-left-radius: 5%; 
+    border-bottom-right-radius: 20%; 
+    
+    @media (min-width: 992px) {
+        border-bottom-left-radius: 10%;
+        border-bottom-right-radius: 30%; 
     }
 }
 
-.div-consultorio{
+.bio-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    background-color: #FAEBE8;
-    padding: 6rem 1rem 3rem 1rem;
-
-    // @media (max-width: 960px) {
-    //     padding: 30rem 1rem 3rem 1rem;
-    //     justify-content: none;
-    //     flex-direction: column;
-    // }
-
+    flex-direction: column-reverse; // Mobile: Texto embaixo, Imagem em cima
+    gap: 2rem;
     
-    // @media (max-width: 775px) {
-    //     padding: 25rem 1rem 3rem 1rem;
-    //     justify-content: none;
-    //     flex-direction: column;
-    // }
+    // Alinha o topo do texto com o topo da imagem
+    align-items: stretch; 
 
-    // @media (max-width: 392px) {
-    //     padding: 33rem 1rem 3rem 1rem;
-    //     justify-content: none;
-    //     flex-direction: column;
-    // }
-
-    // @media (max-width: 295px) {
-    //     padding: 38rem 1rem 3rem 1rem;
-    //     justify-content: none;
-    //     flex-direction: column;
-    // }
-
-    //  @media (max-width: 253px) {
-    //     padding: 45rem 1rem 3rem 1rem;
-    //     justify-content: none;
-    //     flex-direction: column;
-    // }
+    @media (min-width: 992px) {
+        flex-direction: row; // Desktop: Lado a lado
+        gap: 4rem; // Espaço maior entre texto e foto
+    }
 }
 
+.bio-content {
+    flex: 1; // Ocupa metade do espaço
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Centraliza o texto verticalmente se a foto for maior
+}
 
-.image-container3 img {
-    transform: rotate(-54deg); border:none;
+// --- CONFIGURAÇÃO DA IMAGEM FULL ---
+
+.bio-image-wrapper {
     width: 100%;
-    /* Largura fixa para a imagem */
-    height: 100%;
-    /* Altura fixa para a imagem */    
-    object-fit: contain;
-    
-    @media (max-width: 450px) {
-        height: 18rem;
-    }
+    position: relative;
+    min-height: 400px; // Altura mínima no celular para não sumir
 
-    @media (max-width: 295px) {
-        height: 13rem;
+    @media (min-width: 992px) {
+        flex: 1; // Ocupa a outra metade do espaço
+        min-height: auto; // Deixa a altura seguir o conteúdo do texto ou vice-versa
+        display: flex;
     }
 }
 
+.bio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Garante que a imagem preencha tudo sem distorcer (corta as bordas se preciso)
+    display: block;
+    
+    // Borda arredondada suave (retângulo com cantos macios)
+    border-radius: 20px; 
+    
+    // Sombra elegante para destacar do fundo dourado
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    
+    // Borda fina branca opcional (fica bonito no fundo dourado)
+    border: 4px solid rgba(255, 255, 255, 0.3);
 
+    @media (min-width: 992px) {
+        // No desktop, garantimos que ela estique para acompanhar o texto
+        position: absolute; 
+        top: 0;
+        left: 0;
+        height: 100%; 
+    }
+}
 
+// --- ESTILOS DO TEXTO (Mantidos limpos) ---
 
+.bio-block {
+    margin-bottom: 2rem;
+    p {
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+    }
+}
 
+.bio-subtitle {
+    font-family: $font-cinzel;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(28, 61, 105, 0.2);
+    display: inline-block;
+    padding-bottom: 0.2rem;
+    font-weight: 600;
+}
 
+.education-list {
+    list-style: none;
+    padding: 0;
+    
+    li {
+        margin-bottom: 0.6rem;
+        position: relative;
+        padding-left: 1.5rem;
+        font-size: 1rem;
 
-.div-button{
+        &::before {
+            content: '✓'; // Usei um checkmark simples
+            color: white; // Check branco para destacar no dourado
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    }
+}
+
+.bio-action {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.education-list {
+    list-style: none;
+    padding: 0;
+    
+    li {
+        margin-bottom: 0.8rem;
+        position: relative;
+        padding-left: 1.5rem;
+
+        &::before {
+            content: '•';
+            color: $color-blue;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    }
+}
+
+.bio-image-wrapper {
+    width: 100%;
     display: flex;
     justify-content: center;
     
-    @media (max-width: 450px) {
-        flex-direction: column;
+    @media (min-width: 992px) {
+        flex: 0 0 400px;
+        position: sticky;
+        top: 8rem; // A foto acompanha o scroll no desktop
     }
 }
 
-.div-curva{
-    border-bottom-right-radius: 41rem;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, -4% 100%, 0% 102%);
-    border-bottom-left-radius: 13rem;
-}
+.bio-image {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 27%;
+    border: 8px solid rgba(255,255,255,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 
-.name-home {
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    // font-family: "Nanum Myeongjo", serif;
-    // font-weight: 300;
-    // font-style: normal;
-    font-size: 65px;
-    @media (max-width: 660px) {
-        line-height: 65px;
-    }
-    // @media (max-width: 564px) {
-    //     line-height: 20px;
-    // }
-    // @media (max-width: 476px) {
-    //     line-height: 20px;
-    // }
-  
-}
-
-.image-consul{
-    display: flex;
-    @media (max-width: 660px) {
-        flex-direction: column;
-    }
-
-}
-
-.name-consul {
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    // font-family: "Nanum Myeongjo", serif;
-    // font-weight: 300;
-    // font-style: normal;
-    font-size: 65px;
-    @media (max-width: 660px) {
-        line-height: 65px;
-    }
-
-    @media (max-width: 500px) {
-        font-size: 50px;
-    }
-
-    @media (max-width: 375px) {
-        font-size: 40px;
-    }
-    // @media (max-width: 564px) {
-    //     line-height: 20px;
-    // }
-    // @media (max-width: 476px) {
-    //     line-height: 20px;
-    // }
-  
-}
-.style-hr{
-    width: 30%;
-    margin-top: 2rem;
-    color: #ffffff;
-    @media (max-width: 1000px) {
-        width: 38%;
-    }
-    @media (max-width: 658px) {
-        margin-top: 1rem;
-    }
-}
-
-.div-sobre{
-    display: flex;
-    justify-content: space-around;
-    background-color: #CEA44B;
-    padding: 3rem 1rem 3rem 1rem;
-
-    @media (max-width: 960px) {
-        justify-content: none;
-        flex-direction: column;
-    }
-}
-
-
-
-.div-foto{
-    width: 50%;
-    padding-left: 2rem;
-    @media (max-width: 960px) {
+    @media (min-width: 992px) {
         width: 100%;
-        padding-left: 0rem;
-        padding-top: 1rem;
+        height: 100%;
     }
 }
 
-.div-info{
-    width: 50%;
-    padding-right: 6rem;
-    padding-top: 5rem;
-    @media (max-width: 960px) {
-        padding-right: 3rem;
-        width: 95%;
-        align-items: center;
-        padding-top: 2rem;
-    }
-    // @media (max-width: 960px) {
-    //     width: 100%;
-    // }
-}
-
-.margin-icon{
-    margin-left: -1rem;
-      @media (max-width: 960px) {
-        padding-right: 3rem;
-        width: 95%;
-        align-items: center;
-        padding-top: 2rem;
-    }
-}
-.text-name{
-    padding-bottom: 4rem;
-    margin-top: 4rem;
-    @media (max-width: 990px){
-        margin-top: 0rem;
-    }
-}
-
-.p-text-info{
-    text-align: justify;
-    @media (max-width: 960px) {
-        width: 100%;
-        padding-left: 0rem;
-        margin: 0rem 4rem 0rem 2.5rem;
-    }
-}
-.text-container {
-    // flex: 1; /* A segunda div (texto) vai ocupar o restante do espaço disponível */
+.bio-action {
     display: flex;
-    /* Usando flexbox para alinhar os elementos */
+    justify-content: center;
+    @media (min-width: 992px) { justify-content: flex-start; }
+}
+
+// Botão Azul (Importado da home)
+::ng-deep .btn-primary {
+    background-color: $color-blue !important;
+    border: 1px solid $color-blue !important;
+    color: white !important;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: transform 0.2s;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+}
+
+// --- 3. ESPECIALIDADES ---
+.specialties-section {
+    background-color: white;
+    padding: 4rem 1rem;
+}
+
+.specialties-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
     flex-direction: column;
-    /* Alinha os itens verticalmente */
-    // justify-content: center; /* Centraliza os itens verticalmente */   
-    padding-left: 20px;
-    /* Espaçamento à esquerda para separar da imagem */
+    align-items: center;
+    gap: 3rem;
 
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
-
-
-.text-container p {
-    font-size: 16px;
-    /* Tamanho do texto */
-    line-height: 1.5;
-    /* Altura da linha para uma boa legibilidade */
-}
-
-.no-margin {
+.section-title {
+    font-family: $font-cinzel;
+    color: $color-blue;
+    font-size: 1.8rem;
     margin: 0;
-    /* Remove a margem */
+}
+
+.specialties-list {
+    list-style: none;
     padding: 0;
-    /* Remove o padding */
-}
+    margin-top: 2rem;
 
-.pb{
-    padding-bottom: 0.5rem;
-}
-
-.images-div{
-    display: flex;
-    flex-direction: column;
-}
-
-::ng-deep .custom-dialog-container {
-    mat-dialog-container {
-        position: fixed;
-        display: block;
-        z-index: 11;
-        width: 45rem;
-        height: 20rem;
-        left: 30%;
-        top: 20%;
-        background-color: rgba(1, 1, 1, 0.1);
-        backdrop-filter: blur(5px);
-
-        @media (max-width: 990px) {
-            position: fixed;
-            display: block;
-            z-index: 11;
-            width: 100%;
-            height: 40rem;
-            left: 10%;
-            top: 10%;
-            padding: 1rem 1rem 7rem 1rem;
+    li {
+        font-size: 1.2rem;
+        color: $color-blue;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        
+        i {
+            margin-right: 1rem;
+            color: $color-gold;
+            font-size: 1.4rem;
         }
+    }
+}
+
+.specialties-image img {
+    max-width: 23rem;
+    opacity: 0.9;
+  
+}
+
+// --- 4. CONSULTÓRIO ---
+.office-section {
+    background-color: $color-gold; // Cor suave que você já usava
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.office-header {
+    margin-bottom: 3rem;
+}
+
+.office-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 4px solid white;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: scale(1.03);
     }
 }
