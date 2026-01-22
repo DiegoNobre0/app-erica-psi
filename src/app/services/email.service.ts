@@ -1,32 +1,44 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import emailjs from '@emailjs/browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
-  constructor(private httpClient: HttpClient) {}
 
- 
-  postEmail(data: any): Observable<any> {       
-    // const url = "https://app-wspsi-backend-v2.vercel.app/send-form";
-    const url = "teste";
-    // const httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.httpClient
-    .post(url, data)
-    .pipe(catchError(this.handleError));
-  } 
+  // Substitua pelos seus IDs do painel do EmailJS
+  private serviceID = 'service_0wzw6rl';   // Pegamos da sua imagem anterior
+  private templateID = 'template_4xahqb9'; // O ID que você acabou de mandar
+  private publicKey = 'XFc6j73k5YYkOSx_Z';
 
-  private handleError(error: HttpErrorResponse): Observable<any> {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  constructor() {
+    // Inicializa o EmailJS (opcional, mas recomendado)
+    emailjs.init(this.publicKey);
+  }
+
+  // Método para enviar o e-mail
+  async sendEmail(formValues: any): Promise<void> {
+    try {
+      // O objeto 'templateParams' deve ter as mesmas chaves que você usou no template do site
+      // Ex: no site você colocou {{name}}, aqui deve ter { name: ... }
+      const templateParams = {
+        from_name: formValues.name,
+        from_email: formValues.email,
+        phone: formValues.number,
+        message: formValues.message
+      };
+
+      const response = await emailjs.send(
+        this.serviceID,
+        this.templateID,
+        templateParams,
+        this.publicKey
+      );
+
+      console.log('SUCCESS!', response.status, response.text);
+    } catch (error) {
+      console.error('FAILED...', error);
+      throw error; // Repassa o erro para o componente tratar
     }
-    console.error(errorMessage);
-    return throwError(errorMessage);
   }
 }

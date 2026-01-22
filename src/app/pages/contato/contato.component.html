@@ -1,5 +1,5 @@
 <div class="contact-page">
-    
+
     <div class="page-header">
         <h1 class="page-title">CONTATO</h1>
         <div class="header-line"></div>
@@ -10,22 +10,23 @@
     </div>
 
     <div class="main-container">
-        
+
         <div class="info-column">
-            
+
             <div class="info-block social-block">
                 <h3 class="info-title">REDES SOCIAIS</h3>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/ericamartins_terapeuta" target="_blank" class="social-btn instagram">
+                    <a href="https://www.instagram.com/ericamartins_terapeuta" target="_blank"
+                        class="social-btn instagram">
                         <i class="pi pi-instagram"></i>
                     </a>
-                    </div>
+                </div>
                 <p class="instagram-handle">@ericamartins_terapeuta</p>
             </div>
 
             <div class="info-block contact-details">
                 <h3 class="info-title">CANAIS DE ATENDIMENTO</h3>
-                
+
                 <div class="contact-item">
                     <div class="icon-circle"><i class="pi pi-envelope"></i></div>
                     <div class="contact-text">
@@ -42,10 +43,8 @@
                     </div>
                 </div>
 
-                <button pButton pRipple label="AGENDAR VIA WHATSAPP" 
-                        icon="pi pi-whatsapp" 
-                        class="btn-primary w-full mt-3"
-                        (click)="whatsapp()"></button>
+                <button pButton pRipple label="AGENDAR VIA WHATSAPP" icon="pi pi-whatsapp"
+                    class="btn-primary w-full mt-3" (click)="whatsapp()"></button>
             </div>
 
         </div>
@@ -53,37 +52,49 @@
         <div class="form-column">
             <div class="form-card shadow-3">
                 <h3 class="form-title">Envie uma Mensagem</h3>
-                
+
                 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-                    
+
                     <div class="input-group">
                         <label>Nome</label>
-                        <input type="text" pInputText formControlName="name" placeholder="Seu nome completo" class="custom-input">
-                        <small class="error-msg" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">Obrigatório</small>
+                        <input type="text" pInputText formControlName="name" placeholder="Seu nome completo"
+                            class="custom-input">
+                        <small class="error-msg"
+                            *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">Obrigatório</small>
                     </div>
 
                     <div class="input-group">
                         <label>E-mail</label>
-                        <input type="email" pInputText formControlName="email" placeholder="seu@email.com" class="custom-input">
-                        <small class="error-msg" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">E-mail inválido</small>
+                        <input type="email" pInputText formControlName="email" placeholder="seu@email.com"
+                            class="custom-input">
+                        <small class="error-msg"
+                            *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">E-mail
+                            inválido</small>
                     </div>
 
                     <div class="input-group">
                         <label>WhatsApp</label>
-                        <input type="tel" pInputText formControlName="number" placeholder="(DD) 99999-9999" class="custom-input">
-                        <small class="error-msg" *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">Número inválido</small>
+
+                        <p-inputMask mask="(99) 99999-9999" formControlName="number" placeholder="(DD) 99999-9999"
+                            styleClass="w-full custom-input" [unmask]="true">
+                        </p-inputMask>
+
+                        <small class="error-msg"
+                            *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">
+                            Número inválido (digite DDD + número)
+                        </small>
                     </div>
 
                     <div class="input-group">
                         <label>Mensagem</label>
-                        <textarea pInputTextarea formControlName="message" rows="5" placeholder="Como posso te ajudar?" class="custom-input"></textarea>
-                        <small class="error-msg" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Obrigatório</small>
+                        <textarea pInputTextarea formControlName="message" rows="5" placeholder="Como posso te ajudar?"
+                            class="custom-input"></textarea>
+                        <small class="error-msg"
+                            *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">Obrigatório</small>
                     </div>
 
-                    <button pButton pRipple label="ENVIAR MENSAGEM" 
-                            class="btn-primary w-full"
-                            type="submit"
-                            [disabled]="contactForm.invalid"></button>
+                    <button pButton pRipple label="ENVIAR MENSAGEM" class="btn-primary w-full" type="submit"
+                        [disabled]="contactForm.invalid"></button>
                 </form>
             </div>
         </div>
@@ -97,10 +108,8 @@
                 <h2>ENDEREÇO</h2>
                 <p>RUA DA BANDEIRA, 44 - CENTRO - CAMAÇARI - BA</p>
             </div>
-            <button pButton pRipple label="ABRIR NO MAPS" 
-                    icon="pi pi-external-link" 
-                    class="btn-outline-white"
-                    (click)="openMaps()"></button>
+            <button pButton pRipple label="ABRIR NO MAPS" icon="pi pi-external-link" class="btn-outline-white"
+                (click)="openMaps()"></button>
         </div>
     </div>
 

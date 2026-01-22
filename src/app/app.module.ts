@@ -49,6 +49,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { CardModule } from 'primeng/card'; // Opcional, mas útil se quiser usar o componente p-card
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { CardModule } from 'primeng/card'; // Opcional, mas útil se quiser usar
     SidebarModule,
     ButtonModule,
     RippleModule,
-    CardModule
+    CardModule,
+    InputMaskModule
     
   ],
   providers: [

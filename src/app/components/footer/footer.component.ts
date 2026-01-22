@@ -9,6 +9,7 @@ import { EmailService } from 'src/app/services/email.service';
 })
 export class FooterComponent {
   contactForm: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -22,21 +23,24 @@ export class FooterComponent {
     }); 
   }
 
-  onSubmit(): void {
+ async onSubmit() {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
-    } 
+    }
+
+    this.loading = true; // Ativa loading
+
+    try {      
+      // Chama o serviço do EmailJS
+      await this.emailService.sendEmail(this.contactForm.value);
       
-    this.emailService.postEmail(this.contactForm.value).subscribe({
-      next: () => {         
-        alert('E-mail enviado com sucesso!');
-        this.contactForm.reset(); 
-      },
-      error: (error) => {
-        console.error('Erro:', error);
-        alert('Erro ao enviar. Tente novamente.');
-      }
-    });
+      alert('Mensagem enviada com sucesso!');
+      this.contactForm.reset();
+    } catch (error) {
+      alert('Ocorreu um erro ao enviar. Tente novamente.');
+    } finally {
+      this.loading = false; // Desativa loading
+    }
   }
 }

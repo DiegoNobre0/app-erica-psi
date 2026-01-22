@@ -1,13 +1,14 @@
 <footer class="footer-section">
     <div class="footer-container">
-        
+
         <div class="footer-col info-col">
             <div class="logo-wrapper">
                 <img src="assets/IMG_8855.PNG" alt="Logo Erica Martins" class="footer-logo">
             </div>
-            
+
             <p class="footer-bio">
-                Ser terapeuta é acolher com presença e escuta, oferecendo um espaço seguro para que o outro possa se reconhecer e se transformar. Não damos respostas prontas, mas caminhamos ao lado.
+                Ser terapeuta é acolher com presença e escuta, oferecendo um espaço seguro para que o outro possa se
+                reconhecer e se transformar. Não damos respostas prontas, mas caminhamos ao lado.
             </p>
 
             <div class="contact-list">
@@ -41,33 +42,43 @@
 
         <div class="footer-col form-col">
             <h3 class="footer-title">Entre em Contato</h3>
-            
+
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="footer-form">
-                
+
                 <div class="form-group">
                     <input type="text" formControlName="name" placeholder="Seu nome" class="custom-input">
-                    <small class="error-msg" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                    <small class="error-msg"
+                        *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
                         Obrigatório
                     </small>
                 </div>
 
                 <div class="form-group">
                     <input type="email" formControlName="email" placeholder="Seu e-mail" class="custom-input">
-                    <small class="error-msg" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                    <small class="error-msg"
+                        *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
                         E-mail inválido
                     </small>
                 </div>
 
-                <div class="form-group">
-                    <input type="tel" formControlName="number" placeholder="Seu WhatsApp" class="custom-input">
-                    <small class="error-msg" *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">
-                        Número inválido
+                <div class="input-group">
+                    <label>WhatsApp</label>
+
+                    <p-inputMask mask="(99) 99999-9999" formControlName="number" placeholder="(DD) 99999-9999"
+                        styleClass="w-full custom-input" [unmask]="true">
+                    </p-inputMask>
+
+                    <small class="error-msg"
+                        *ngIf="contactForm.get('number')?.invalid && contactForm.get('number')?.touched">
+                        Número inválido (digite DDD + número)
                     </small>
                 </div>
 
                 <div class="form-group">
-                    <textarea formControlName="message" rows="4" placeholder="Sua mensagem" class="custom-input"></textarea>
-                    <small class="error-msg" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+                    <textarea formControlName="message" rows="4" placeholder="Sua mensagem"
+                        class="custom-input"></textarea>
+                    <small class="error-msg"
+                        *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
                         Escreva uma mensagem
                     </small>
                 </div>
