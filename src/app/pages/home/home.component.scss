@@ -9,7 +9,7 @@ $font-cinzel: 'Cinzel', serif;
 // --- 1. HERO SECTION ---
 .hero-section {
     position: relative;
-    min-height: 140vh; // Garante tela cheia
+    min-height: 100vh; // Garante tela cheia
     background-image: url('../../../assets/erica6.jpg');
     background-size: cover;
     background-position: center;
@@ -39,7 +39,7 @@ $font-cinzel: 'Cinzel', serif;
     z-index: 0;
     text-align: center;
     color: white;
-    margin-top: 14rem;
+    margin-top: 10rem;
 }
 
 .hero-title {
