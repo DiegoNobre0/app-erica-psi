@@ -30,10 +30,10 @@ $font-cinzel: 'Cinzel', serif;
 
 // --- 2. BIO SECTION (A Curva Dourada) ---
 .bio-section {
-    background-color: $color-gold;
+    background-color: $color-blue;
     // Padding ajustado para dar respiro, mas permitir que a imagem cresça
     padding: 4rem 1rem 6rem 1rem; 
-    color: $color-blue;
+    color: $color-gold;
     position: relative;
 
     // Curva suave na base da seção inteira
@@ -209,8 +209,8 @@ $font-cinzel: 'Cinzel', serif;
 
 // Botão Azul (Importado da home)
 ::ng-deep .btn-primary {
-    background-color: $color-blue !important;
-    border: 1px solid $color-blue !important;
+    background-color: $color-gold !important;
+    border: 1px solid $color-gold !important;
     color: white !important;
     padding: 1rem 2rem;
     font-weight: bold;
@@ -245,7 +245,7 @@ $font-cinzel: 'Cinzel', serif;
 
 .section-title {
     font-family: $font-cinzel;
-    color: $color-blue;
+    color: $color-gold;
     font-size: 1.8rem;
     margin: 0;
 }
