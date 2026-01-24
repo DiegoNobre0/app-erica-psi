@@ -22,9 +22,9 @@ export class EmailService {
       // O objeto 'templateParams' deve ter as mesmas chaves que você usou no template do site
       // Ex: no site você colocou {{name}}, aqui deve ter { name: ... }
       const templateParams = {
-        from_name: formValues.name,
-        from_email: formValues.email,
-        phone: formValues.number,
+        name: formValues.name,
+        email: formValues.email,
+        number: formValues.number,
         message: formValues.message
       };
 
