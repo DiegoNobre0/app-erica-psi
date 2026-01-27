@@ -11,6 +11,7 @@ export class EmailService {
   private templateID = 'template_4xahqb9'; // O ID que você acabou de mandar
   private publicKey = 'XFc6j73k5YYkOSx_Z';
 
+
   constructor() {
     // Inicializa o EmailJS (opcional, mas recomendado)
     emailjs.init(this.publicKey);
@@ -18,6 +19,8 @@ export class EmailService {
 
   // Método para enviar o e-mail
   async sendEmail(formValues: any): Promise<void> {
+
+    const dataAtual = new Date().toLocaleString('pt-BR');
     try {
       // O objeto 'templateParams' deve ter as mesmas chaves que você usou no template do site
       // Ex: no site você colocou {{name}}, aqui deve ter { name: ... }
@@ -25,7 +28,8 @@ export class EmailService {
         name: formValues.name,
         email: formValues.email,
         number: formValues.number,
-        message: formValues.message
+        message: formValues.message,
+        time: dataAtual
       };
 
       const response = await emailjs.send(
