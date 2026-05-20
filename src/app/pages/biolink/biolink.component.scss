@@ -1,0 +1,122 @@
+// Importação das suas variáveis globais (ajuste o caminho se necessário)
+$color-blue: #1C3D69;
+$color-gold: #CEA44B;
+$font-cinzel: 'Cinzel', serif;
+
+.links-page {
+  // Gradiente vertical elegante partindo do azul da marca
+  background: linear-gradient(180deg, $color-blue 0%, #0d1e34 100%);
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Montserrat', sans-serif; // Ou a fonte secundária de leitura do seu projeto
+}
+
+.links-container {
+  width: 100%;
+  max-width: 450px; // Largura máxima ideal para simular app mobile
+  text-align: center;
+}
+
+// --- HEADER DO PERFIL ---
+.profile-header {
+  margin-bottom: 3rem;
+
+  .profile-avatar {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 1.2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid $color-gold;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .profile-name {
+    font-family: $font-cinzel;
+    color: white;
+    font-size: 1.6rem;
+    margin: 0 0 0.4rem 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .profile-subtitle {
+    color: $color-gold;
+    font-size: 1.05rem;
+    margin: 0 0 1.2rem 0;
+    font-weight: 500;
+  }
+
+  .profile-instruction {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+  }
+}
+
+// --- BOTÕES DE LINKS ---
+.links-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; // Espaçamento uniforme entre os botões
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 1.1rem 1.5rem;
+  border-radius: 12px; // Cantos arredondados suavizados idênticos ao layout moderno
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+
+  // Posiciona o ícone do PrimeIcons de forma absoluta à esquerda
+  i {
+    position: absolute;
+    left: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  span {
+    width: 100%;
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  // Efeito de hover/toque para desktop e mobile feedback
+  &:hover {
+    background-color: white;
+    color: $color-blue;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  // Botão de destaque principal (Agendamento / WhatsApp)
+  &.btn-highlight {
+    border-color: $color-gold;
+    color: $color-gold;
+
+    &:hover {
+      background-color: $color-gold;
+      color: white;
+    }
+  }
+}

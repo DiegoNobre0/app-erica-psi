@@ -1,4 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="showLayout"></app-navbar>
+
 <router-outlet></router-outlet>
-<app-whatsapp></app-whatsapp>
-<app-footer></app-footer>
+
+<app-whatsapp *ngIf="showLayout"></app-whatsapp>
+<app-footer *ngIf="showLayout"></app-footer>

@@ -50,6 +50,7 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { CardModule } from 'primeng/card'; // Opcional, mas útil se quiser usar o componente p-card
 import { InputMaskModule } from 'primeng/inputmask';
+import { BiolinkComponent } from './pages/biolink/biolink.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     ContatoComponent,
     WhatsappComponent,
     ApproveCommentComponent,
-    RejectCommentComponent
+    RejectCommentComponent,
+    BiolinkComponent
   ],
   imports: [
     BrowserModule,
